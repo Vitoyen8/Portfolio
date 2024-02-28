@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --main-bg-color: rgb(0, 21, 255);
+            --main-bg-color2: rgb(17, 255, 0);
+            --second-bg-color: rgb(0, 255, 162);
+            --black: rgb(7, 6, 13);
+            --white: rgb(255, 252, 249);
+            --space-between-div: 150px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--white);
+            background-color: var(--black);
+            margin: 0px;
+            padding: 0px;
+            height: 4000px;
+        }
+
+        .header_container {
+            position: fixed;
+            width: 100vw;
+            z-index: 1;
+        }
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.323);
+            border-radius: 30px;
+            display: flex;
+            float: right;
+            margin: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .button {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            background-color: var(--black);
+            border-style: solid;
+            border-radius: 30px;
+            border-width: 1px;
+            border-color: var(--white);
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.7s ease-out;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background-color: var(--main-bg-color);
+            box-shadow: 0px 0px 8px var(--main-bg-color);
+        }
+
+        .title {
+            font-size: 12vw;
+            font-weight: 600;
+            margin-left: 30px;
+            margin-bottom: -100px;
+        }
+
+        .titre_second {
+            overflow: hidden;
+            font-size: 5.5vw;
+            font-weight: 600;
+            margin: var(--space-between-div);
+            margin-left: 30px;
+            padding: 8px;
+            height: 6vw;
+            border-style: solid;
+            border-color: var(--main-bg-color);
+            border-width: 1px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            line-height: 7vw;
+            z-index: 1;
+        }
+
+        .titre_third {
+            overflow: hidden;
+            font-size: 3.5vw;
+            font-weight: 600;
+            margin: var(--space-between-div);
+            margin-left: 30px;
+            padding: 8px;
+            height: 5vw;
+            border-style: solid;
+            border-color: var(--main-bg-color);
+            border-width: 1px;
+            border-left-width: 0px;
+            border-right-width: 0px;
+            line-height: 5vw;
+            z-index: 1;
+        }
+
+        .line {
+            border-bottom: 1px solid #888;
+            z-index: 1;
+            border-color: var(--main-bg-color);
+        }
+
+        .grey {
+            color: rgba(255, 255, 255, 0.483);
+            font-weight: 100;
+            z-index: 1;
+        }
+
+        .model_container {
+            width: 100vw;
+            height: 35vw;
+            align-items: center;
+            z-index: 0;
+            margin-top: -150px;
+            margin-bottom: 200px;
+        }
+
+        .image_title {
+            display: block;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .burger_menu {
+            color: var(--white);
+            background-color: var(--black);
+            border-style: solid;
+            border-radius: 30px;
+            border-width: 1px;
+            border-color: var(--white);
+            padding: 10px;
+            padding-bottom: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.7s ease-out;
+            display: none;
+        }
+
+        .burger_menu:hover {
+            transform: scale(1.1);
+            color: var(--black);
+            background-color: var(--main-bg-color);
+            box-shadow: 0px 0px 6px var(--white);
+        }
+
+        .burger_svg {
+            width: 30px;
+        }
+
+        .projet_container,
+        .projet_text1,
+        .projet_text2 {
+            font-weight: 900;
+            color: var(--white);
+            font-size: 3vw;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 1s ease, transform 1s ease;
+            margin: 60px;
+        }
+
+        .projet_text2 {
+            margin-bottom: 70px;
+        }
+
+        .char {
+            transform: translateY(200px);
+            transition: transform 1s;
+        }
+
+        .abilities_container {
+            display: flex;
+        }
+
+        .abilities_graph {
+            display: flex;
+            border-radius: 10px;
+            height: 200px;
+            width: 200px;
+            margin: auto;
+            padding: 20px;
+            align-items: end;
+        }
+
+        .abilities_title {
+            color: var(--white);
+            font-weight: 500;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .abilities {
+            color: var(--main-bg-color);
+            border-style: solid;
+            border-color: var(--main-bg-color);
+            border-width: 1px;
+            text-align: center;
+            font-size: 40px;
+            padding: 20px;
+            margin: 10px;
+            height: 300px;
+            border-radius: 30px;
+            width: 30%;
+        }
+
+        .vl {
+            width: 10px;
+            border-left: 20px solid var(--main-bg-color);
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+        }
+
+        .description_graph_container {
+            display: flex;
+            width: 150px;
+            margin: auto;
+            padding: 10px;
+        }
+
+        .description_graph {
+            font-size: 14px;
+        }
+
+        .registered {
+            color: var(--white);
+            position: absolute;
+            font-size: 16vw;
+            left: 70vw;
+            top: 29vw;
+        }
+
+        @media screen and (max-width:800px) {
+
+            .burger_menu {
+                display: block;
+            }
+
+            .button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        window.addEventListener('scroll', function () {
+            var projetContainer = document.querySelector('.projet_container');
+            var projetText1 = document.querySelector('.projet_text1');
+            var projetText2 = document.querySelector('.projet_text2');
+            var rect = projetContainer.getBoundingClientRect();
+            var rect1 = projetText1.getBoundingClientRect();
+            var rect2 = projetText2.getBoundingClientRect();
+            var value_of_scroll = 200;
+
+            // Vérifiez si la div "projet_container" est visible dans la fenêtre d'affichage
+            if (rect.top <= window.innerHeight - value_of_scroll && rect.bottom >= 0) {
+                // Modifiez les valeurs d'opacité et de translation pour afficher la div avec une animation
+                projetContainer.style.opacity = 1;
+                projetContainer.style.transform = 'translateY(0)';
+
+                // Vérifiez si les éléments "projet_text1" et "projet_text2" sont visibles dans la fenêtre d'affichage
+                if (rect1.top <= window.innerHeight - value_of_scroll && rect1.bottom >= 0) {
+                    // Modifiez les valeurs d'opacité et de translation pour afficher les éléments avec une animation
+                    projetText1.style.opacity = 1;
+                    projetText1.style.transform = 'translateY(0)';
+                } else {
+                    // Sinon, réinitialisez les valeurs d'opacité et de translation
+                    projetText1.style.opacity = 0;
+                    projetText1.style.transform = 'translateY(100px)';
+                }
+
+                if (rect2.top <= window.innerHeight - value_of_scroll && rect2.bottom >= 0) {
+                    // Modifiez les valeurs d'opacité et de translation pour afficher les éléments avec une animation
+                    projetText2.style.opacity = 1;
+                    projetText2.style.transform = 'translateY(0)';
+                } else {
+                    // Sinon, réinitialisez les valeurs d'opacité et de translation
+                    projetText2.style.opacity = 0;
+                    projetText2.style.transform = 'translateY(100px)';
+                }
+            } else {
+                // Sinon, réinitialisez les valeurs d'opacité et de translation
+                projetContainer.style.opacity = 0;
+                projetContainer.style.transform = 'translateY(100px)';
+                projetText1.style.opacity = 0;
+                projetText1.style.transform = 'translateY(100px)';
+                projetText2.style.opacity = 0;
+                projetText2.style.transform = 'translateY(100px)';
+            }
+        });
+    </script>
+
+    <div class="header_container">
+        <div class="header">
+            <div class="burger_menu"><img src="./Media/Hamburger_icon_white.svg" class="burger_svg"
+                    alt="My Happy SVG" /></div>
+            <div class="button">Home.</div>
+            <div class="button">Project.</div>
+            <div class="button">Contact.</div>
+        </div>
+    </div>
+    <div class="title" id="my-text">PORTFOLIO<span style="color:var(--main-bg-color);">.</span></div>
+    <div class="titre_second">ABOUT ME. <span style="color:var(--main-bg-color);">“&amp;”</span>. <span
+            class="grey">ABOUT ME.</span> <span style="color:var(--main-bg-color);">“&amp;”</span>. <span
+            class="grey">ABOUT
+            ME.</span> <span style="color:var(--main-bg-color);">“&amp;”</span>.<span class="grey">ABOUT ME.</span>
+        “&amp;”. </div>
+    <div class="registered">®</div>
+    <div class="model_container">
+        <img src="./Media/Logo1Tissu.png" class="image_title" alt="My Image">
+    </div>
+    <div class="projet_container">Hello. I'm <span style="color:var(--main-bg-color)">Victorien</span>.</div>
+    <div class="projet_text1">I'm a <span style="color:var(--main-bg-color)">Graphist Designer</span>.</div>
+    <div class="projet_text2">And <span style="color:var(--main-bg-color)">Abstract</span> art, <span
+            style="color:var(--main-bg-color)">Science</span> lover.</div>
+
+    <div class="titre_third">ABILITIES. <span style="color:var(--main-bg-color);">“&amp;”</span>. <span
+            class="grey">ABILITIES..</span> <span style="color:var(--main-bg-color);">“&amp;”</span>. <span
+            class="grey">ABILITIES..</span> “&amp;”.<span class="grey">ABILITIES..</span> “&amp;”. </div>
+
+    <div class="abilities_container">
+        <div class="abilities">
+            <div class="abilities_title">Graphism</div>
+            <div class="abilities_graph">
+                <div class="vl" style="height: 80px;"></div>
+                <div class="vl" style="height: 200px;"></div>
+                <div class="vl" style="height: 140px;"></div>
+            </div>
+        </div>
+        <div class="abilities">
+            <div class="abilities_title">Motion</div>
+            <div class="abilities_graph">
+                <div class="vl" style="height: 80px;"></div>
+                <div class="vl" style="height: 200px;"></div>
+                <div class="vl" style="height: 140px;"></div>
+            </div>
+        </div>
+        <div class="abilities">
+            <div class="abilities_title">3D</div>
+            <div class="abilities_graph">
+                <div class="vl" style="height: 80px;"></div>
+                <div class="vl" style="height: 200px;"></div>
+                <div class="vl" style="height: 140px;"></div>
+            </div>
+            <div class="description_graph_container">
+                <div class="description_graph">Descr1</div>
+                <div class="description_graph">Descr2</div>
+                <div class="description_graph">Descr3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="titre_third">EXPERIENCES. <span style="color:var(--main-bg-color);">“&amp;”</span>. <span
+        class="grey">EXPERIENCES..</span> <span style="color:var(--main-bg-color);">“&amp;”</span>. <span
+        class="grey">EXPERIENCES..</span> “&amp;”.<span class="grey">EXPERIENCES..</span> “&amp;”. </div>
+
+    <div class="titre_second">PROJECT. <span style="color:var(--main-bg-color);">“&amp;”</span>. <span
+            class="grey">PROJECT.</span> <span style="color:var(--main-bg-color);">“&amp;”</span>. <span
+            class="grey">PROJECT.</span> “&amp;”.<span class="grey">PROJECT.</span> “&amp;”. </div>
+
+    <script src="https://www.npmjs.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script>
+        const myText = new SplitType('#my-text')
+
+        gsap.to('.char', {
+            y: 0,
+            stagger: 0.05,
+            delay: 0.2,
+            duration: 1
+        })
+    </script>
+
+</body>
+
+
+</html>
